@@ -111,9 +111,7 @@ class GoogleCalendarService {
       const response = await functions.createExecution(
         this.FUNCTION_ID,
         JSON.stringify(payload),
-        false,
-        "/",
-        "POST"
+        false
       );
 
       console.log(`📬 Status: ${response.status}, Code: ${response.responseStatusCode}`);
