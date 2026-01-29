@@ -11,11 +11,22 @@ const validateEnv = () => {
   const missing = required.filter(key => !import.meta.env[key]);
   
   if (missing.length > 0) {
-    throw new Error(`Missing required environment variables: ${missing.join(', ')}`);
+    const errorMsg = `❌ Missing required environment variables: ${missing.join(', ')}`;
+    console.error(errorMsg);
+    console.error('📝 Please add these variables to your Vercel project settings.');
+    console.error('🔗 Guide: https://vercel.com/docs/projects/environment-variables');
+    throw new Error(`Configuration Error: ${errorMsg}\n\nPlease configure environment variables in Vercel dashboard.`);
   }
 };
 
-validateEnv();
+// Validate before initializing
+try {
+  validateEnv();
+  console.log('✅ Environment variables validated');
+} catch (error) {
+  console.error('🚨 Environment validation failed:', error);
+  throw error;
+}
 
 // Initialize Appwrite client
 const client = new Client()
@@ -54,8 +65,6 @@ export const collections = {
 // Database ID
 export const databaseId = import.meta.env.VITE_APPWRITE_DATABASE_ID;
 
-console.log('✅ Appwrite initialized:', {
-  endpoint: import.meta.env.VITE_APPWRITE_ENDPOINT,
-  project: import.meta.env.VITE_APPWRITE_PROJECT_ID,
-  database: databaseId,
-});
+console.log('✅ Appwrite initialized successfully');
+console.log('🔗 Endpoint:', import.meta.env.VITE_APPWRITE_ENDPOINT);
+console.log('🎯 Project ID:', import.meta.env.VITE_APPWRITE_PROJECT_ID?.substring(0, 8) + '...');

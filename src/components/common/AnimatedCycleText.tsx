@@ -1,15 +1,9 @@
 import { useEffect, useRef } from 'react';
 
-interface AnimationStep {
-  toValue: number;
-  duration: number;
-  delay: number;
-}
-
 const AnimatedCycleText = () => {
   const words = ['Dream', 'Train', 'Play'];
-  const textHeight = 69; // 46 * 1.5
-  const containerWidth = 195; // 130 * 1.5
+  const textHeight = 69;
+  const containerWidth = 195;
   const animationValue = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -18,9 +12,14 @@ const AnimatedCycleText = () => {
     let timeoutId: number;
 
     const runAnimation = () => {
+      interface AnimationStep {
+        toValue: number;
+        duration: number;
+        delay: number;
+      }
+      
       const sequence: AnimationStep[] = [];
       
-      // Create sequence
       for (let i = 1; i < words.length; i++) {
         sequence.push({
           toValue: -textHeight * i,
@@ -51,7 +50,6 @@ const AnimatedCycleText = () => {
           const elapsed = Date.now() - startTime;
           const progress = Math.min(elapsed / step.duration, 1);
 
-          // Easing function (ease in-out)
           const eased = progress < 0.5
             ? 4 * progress * progress * progress
             : 1 - Math.pow(-2 * progress + 2, 3) / 2;
