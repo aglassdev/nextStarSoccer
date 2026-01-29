@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import lottie, { AnimationItem } from 'lottie-web';
 
 interface LoadingScreenProps {
   message?: string;
 }
 
-const LoadingScreen = ({ message = 'Loading...' }: LoadingScreenProps) => {
+const LoadingScreen = ({ }: LoadingScreenProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<AnimationItem | null>(null);
 

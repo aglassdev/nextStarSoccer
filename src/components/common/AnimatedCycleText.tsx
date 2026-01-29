@@ -1,5 +1,11 @@
 import { useEffect, useRef } from 'react';
 
+interface AnimationStep {
+  toValue: number;
+  duration: number;
+  delay: number;
+}
+
 const AnimatedCycleText = () => {
   const words = ['Dream', 'Train', 'Play'];
   const textHeight = 69; // 46 * 1.5
@@ -9,10 +15,10 @@ const AnimatedCycleText = () => {
 
   useEffect(() => {
     let animationFrameId: number;
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: number;
 
     const runAnimation = () => {
-      const sequence = [];
+      const sequence: AnimationStep[] = [];
       
       // Create sequence
       for (let i = 1; i < words.length; i++) {
@@ -33,7 +39,7 @@ const AnimatedCycleText = () => {
       const animate = () => {
         if (currentStep >= sequence.length) {
           currentStep = 0;
-          timeoutId = setTimeout(() => animate(), 0);
+          timeoutId = window.setTimeout(() => animate(), 0);
           return;
         }
 
@@ -59,7 +65,7 @@ const AnimatedCycleText = () => {
           if (progress < 1) {
             animationFrameId = requestAnimationFrame(update);
           } else {
-            timeoutId = setTimeout(() => {
+            timeoutId = window.setTimeout(() => {
               currentStep++;
               animate();
             }, step.delay);
