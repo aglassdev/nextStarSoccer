@@ -1,12 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import { useAuth } from '../contexts/AuthContext';
+
 import { databases, account, collections, databaseId } from '../services/appwrite';
 import { ADMIN_CONFIG } from '../constants/adminConfig';
 import Navigation from '../components/layout/Navigation';
 import Lottie from 'lottie-web';
-
-const accentColor = '#FF0000';
-const defaultBorderColor = 'white';
 
 const subjectOptions = [
   'Individual Session',
@@ -165,7 +162,6 @@ const coachesFAQ: FAQItem[] = [
 ];
 
 const ContactPage = () => {
-  const { user } = useAuth();
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [otherSubject, setOtherSubject] = useState('');
