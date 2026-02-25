@@ -60,6 +60,7 @@ export const collections = {
   payments: import.meta.env.VITE_APPWRITE_PAYMENTS_COLLECTION_ID,
   familyRelationships: import.meta.env.VITE_APPWRITE_FAMILY_RELATIONSHIPS_COLLECTION_ID,
   familyInvitations: import.meta.env.VITE_APPWRITE_FAMILY_INVITATIONS_COLLECTION_ID,
+  websiteInquiries: 'website_inquiries',
 };
 
 // Database ID

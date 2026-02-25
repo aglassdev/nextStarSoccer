@@ -25,6 +25,15 @@ export default {
         sans: ['LT Wave', 'Inter', 'system-ui', 'sans-serif'],
         'lt-wave': ['LT Wave', 'sans-serif'],
       },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
+      animation: {
+        fadeIn: 'fadeIn 0.8s ease-in-out',
+      },
     },
   },
   plugins: [

@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePageNew';
 import AboutPage from './pages/AboutPage';
 import CoachesPage from './pages/CoachesPage';
 import ServicesPage from './pages/ServicesPage';
 import AlumniPage from './pages/AlumniPage';
 import ContactPage from './pages/ContactPage';
+import FAQPage from './pages/FAQPage';
 import StorePage from './pages/StorePage';
 import LoginPage from './pages/auth/LoginPage';
 import SignupPage from './pages/auth/SignupPage';
@@ -43,6 +44,7 @@ function AppRoutes() {
       <Route path="/alumni" element={<AlumniPage />} />
       <Route path="/calendar" element={<CalendarPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/faq" element={<FAQPage />} />
       <Route path="/store" element={<StorePage />} />
       
       {/* Auth routes */}
