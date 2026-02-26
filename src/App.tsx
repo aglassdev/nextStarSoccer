@@ -13,6 +13,7 @@ import SignupPage from './pages/auth/SignupPage';
 import DashboardPage from './pages/DashboardPage';
 import EventsPage from './pages/EventsPage';
 import CalendarPage from './pages/CalendarPage';
+import CalendarEmbed from './pages/CalendarEmbed';
 import BillingPage from './pages/BillingPage';
 import ProfilePage from './pages/ProfilePage';
 import Layout from './components/layout/Layout';
@@ -43,6 +44,7 @@ function AppRoutes() {
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/alumni" element={<AlumniPage />} />
       <Route path="/calendar" element={<CalendarPage />} />
+      <Route path="/calendar-embed" element={<CalendarEmbed />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/faq" element={<FAQPage />} />
       <Route path="/store" element={<StorePage />} />
